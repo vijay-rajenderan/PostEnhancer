@@ -133,7 +133,7 @@ function App() {
             <header className="navbar">
                 <div className="logo">
                     <Sparkles className="icon-sparkle" size={24} />
-                    <span>LinkedIn Enhancer</span>
+                    <span>PostEnhancer</span>
                 </div>
                 <div className="nav-actions">
                     <button
