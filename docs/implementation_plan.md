@@ -6,7 +6,7 @@ This plan outlines the step-by-step construction of the LinkedIn Post Enhancer u
 A clean separation of concerns between frontend and backend.
 
 ```text
-/class-linkedin
+/PostEnhancer
 ├── client/                 # React (Vite) Frontend
 │   ├── src/
 │   │   ├── components/     # UI Components (Editor, Preview, Button)

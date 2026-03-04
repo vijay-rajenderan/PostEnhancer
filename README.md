@@ -85,8 +85,8 @@ The **Smart Format** feature uses a secondary LLM pass to analyze the visual hie
 ### **1. Environment Configuration**
 ```bash
 # Clone the repository
-git clone https://github.com/your-repo/ai-architect-linkedin.git
-cd ai-architect-linkedin
+git clone https://github.com/your-repo/PostEnhancer.git
+cd PostEnhancer
 
 # Create environment file
 cp .env.example .env
