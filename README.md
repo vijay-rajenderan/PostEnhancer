@@ -14,38 +14,34 @@ An enterprise-grade, AI-native workspace designed to transform raw technical tho
 The application implements a decoupled Hexagonal-inspired architecture, ensuring maximum resilience and horizontal scalability.
 
 ```mermaid
-flowchart TD
-    %% Global Styles
-    classDef default font-family:Inter,font-size:14px,color:#fff;
+graph LR
+    %% Global Stylings
     classDef client fill:#6366f1,stroke:#4338ca,stroke-width:2px,color:#fff;
     classDef server fill:#0f172a,stroke:#334155,stroke-width:2px,color:#fff;
     classDef ai fill:#f59e0b,stroke:#d97706,stroke-width:3px,color:#fff;
     classDef linkedin fill:#0077b5,stroke:#005a87,stroke-width:2px,color:#fff;
-    classDef shadow stroke-dasharray: 5 5;
 
-    subgraph WORKSPACE ["<br/><b>⚡ THE CONTENT WORKSPACE</b><br/><i>Modern React Frontend</i>"]
-        direction TB
-        A[<b>Rich Editor</b><br/>Post Draft Area]:::client
-        B[<b>Persona Engine</b><br/>Resume Context]:::client
-        C[<b>Unicode Engine</b><br/>Rich Text Layer]:::client
+    subgraph UI ["WORKSPACE"]
+        A[Rich Editor]:::client
+        B[Persona Engine]:::client
+        C[Unicode Engine]:::client
     end
 
-    subgraph ENGINE ["<br/><b>🛡️ AGENTIC CORE</b><br/><i>Node.js Backend Orchestrator</i>"]
-        direction TB
-        D{<b>The Dispatcher</b><br/>Correlation Tracing}:::server
-        E[<b>Gemini Svc</b><br/>Prompt Tuning]:::server
-        F[<b>Resilience Mgr</b><br/>Retry & Backoff]:::server
+    subgraph BACKEND ["ENGINE"]
+        D{Dispatcher}:::server
+        E[Gemini Svc]:::server
+        F[Resilience]:::server
     end
 
-    subgraph MODELS ["<br/><b>🧠 INTELLIGENCE</b><br/><i>Generative AI</i>"]
-        G((<b>Gemini 1.5 Flash</b><br/>JSON Mode)):::ai
+    subgraph INTELLIGENCE ["BRAIN"]
+        G((Gemini 1.5)):::ai
     end
 
-    subgraph PUBLISH ["<br/><b>🌐 DESTINATION</b><br/><i>API Mesh</i>"]
-        H[<b>LinkedIn API</b><br/>v2026.01]:::linkedin
+    subgraph MESH ["MESH"]
+        H[LinkedIn API]:::linkedin
     end
 
-    %% Connectivity
+    %% Flow
     A <--> B
     A --> C
     C --> D
@@ -54,11 +50,11 @@ flowchart TD
     E <==> G
     D ==> H
 
-    %% Layout Tuning
-    style WORKSPACE fill:#fafafa,stroke:#e2e8f0,stroke-width:1px,stroke-dasharray: 5 5;
-    style ENGINE fill:#f8fafc,stroke:#cbd5e1,stroke-width:1px,stroke-dasharray: 5 5;
-    style MODELS fill:#fffef3,stroke:#fef08a,stroke-width:1px,stroke-dasharray: 5 5;
-    style PUBLISH fill:#f0f9ff,stroke:#bae6fd,stroke-width:1px,stroke-dasharray: 5 5;
+    %% Aesthetic Tuning
+    style UI fill:#f8faff,stroke:#e2e8f0,stroke-dasharray: 5 5
+    style BACKEND fill:#f8fafc,stroke:#cbd5e1,stroke-dasharray: 5 5
+    style INTELLIGENCE fill:#fffef3,stroke:#fef08a,stroke-dasharray: 5 5
+    style MESH fill:#f0f9ff,stroke:#bae6fd,stroke-dasharray: 5 5
 ```
 
 ---
