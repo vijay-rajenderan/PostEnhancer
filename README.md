@@ -9,6 +9,20 @@ An enterprise-grade, AI-native workspace designed to transform raw technical tho
 
 ---
 
+## ✨ Visual Showcase
+
+<table>
+  <tr>
+    <td width="50%"><img src="./assets/hero_mockup.png" alt="Workspace Overview"/><br/><sub><b>Workspace Overview</b>: Dual-pane AI editor with premium LinkedIn preview.</sub></td>
+    <td width="50%"><img src="./assets/persona_panel.png" alt="Persona Grounding"/><br/><sub><b>Persona Grounding</b>: Tailoring AI output to your specific technical expertise.</sub></td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="./assets/smart_polish.png" alt="AI Smart Polish"/><br/><sub><b>AI Smart Polish</b>: Dynamic Unicode transformation for automated visual hierarchy.</sub></td>
+  </tr>
+</table>
+
+---
+
 ## �️ System Architecture
 
 The application implements a decoupled Hexagonal-inspired architecture, ensuring maximum resilience and horizontal scalability.
