@@ -34,12 +34,12 @@ function App() {
     ];
     const [copied, setCopied] = useState(false);
     const [error, setError] = useState('');
-    const [history, setHistory] = useState([]);
+    const [history, setHistory] = useState(() => {
+        const savedHistory = localStorage.getItem('li_enhancer_history');
+        return savedHistory ? JSON.parse(savedHistory) : [];
+    });
 
     useEffect(() => {
-        const savedHistory = localStorage.getItem('li_enhancer_history');
-        if (savedHistory) setHistory(JSON.parse(savedHistory));
-
         const savedPersona = localStorage.getItem('li_enhancer_persona');
         if (savedPersona) setPersonaText(savedPersona);
 
@@ -122,18 +122,28 @@ function App() {
         setSelectedStyle(item.style);
     };
 
-    const handleClearHistory = () => {
-        if (window.confirm('Clear all your history?')) {
-            setHistory([]);
-        }
+    const handleClearAllHistory = () => {
+        setHistory([]);
+    };
+
+    const handleDeleteSingleItem = (id) => {
+        console.log('App: Deleting history item', id);
+        setHistory(prev => prev.filter(item => item.id !== id));
+    };
+
+    const handleLogoClick = () => {
+        setRawContent('');
+        setEnhancedContent('');
+        setSelectedStyle('thoughtful');
+        setEngagementScore(0);
     };
 
     return (
         <div className="layout">
             <header className="navbar">
-                <div className="logo">
+                <div className="logo" onClick={handleLogoClick}>
                     <Sparkles className="icon-sparkle" size={24} />
-                    <span>POSTENHANCER <span className="logo-ai">AI</span></span>
+                    <span>LinkEnhance <span className="logo-ai">AI</span></span>
                 </div>
                 <nav className="nav-menu">
                     <span className="nav-item active">Dashboard</span>
@@ -151,11 +161,22 @@ function App() {
                 </div>
             </header>
 
+            <section className="hero-section">
+                <h1 className="hero-title">
+                    Scattered thoughts. <span className="highlight-text">Immaculate</span> authority.
+                </h1>
+                <p className="hero-subtitle">
+                    The #1 AI Architect for LinkedIn creators. Ground your raw ideas
+                    in technical expertise and dominate the feed in seconds.
+                </p>
+            </section>
+
             <main className="main-content">
                 <HistorySidebar
                     history={history}
                     onSelect={handleSelectHistory}
-                    onClear={handleClearHistory}
+                    onClear={handleClearAllHistory}
+                    onDeleteItem={handleDeleteSingleItem}
                 />
                 <div className="workspace">
                     <div className="editor-section">
@@ -184,12 +205,12 @@ function App() {
                                 />
                                 <div className="card-footer">
                                     <button
-                                        className="btn-primary"
+                                        className="btn-primary btn-shine"
                                         onClick={handleEnhance}
                                         disabled={isLoading || !rawContent.trim()}
                                     >
-                                        {isLoading ? 'Enhancing...' : 'Enhance Post'}
                                         <Sparkles size={18} />
+                                        {isLoading ? 'Enhancing...' : 'Enhance Post'}
                                     </button>
                                 </div>
                             </div>

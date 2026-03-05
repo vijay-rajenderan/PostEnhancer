@@ -2,7 +2,7 @@ import React from 'react';
 import { History, Trash2, Clock, ChevronRight } from 'lucide-react';
 import '../styles/HistorySidebar.css';
 
-const HistorySidebar = ({ history, onSelect, onClear }) => {
+const HistorySidebar = ({ history, onSelect, onClear, onDeleteItem }) => {
     if (history.length === 0) {
         return (
             <div className="history-empty">
@@ -23,19 +23,30 @@ const HistorySidebar = ({ history, onSelect, onClear }) => {
             </div>
             <div className="history-list">
                 {history.map((item) => (
-                    <div
-                        key={item.id}
-                        className="history-item"
-                        onClick={() => onSelect(item)}
-                    >
-                        <div className="item-meta">
-                            <span className="item-style">{item.style}</span>
-                            <span className="item-date">
-                                {new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                            </span>
+                    <div key={item.id} className="history-item-card">
+                        <div
+                            className="history-item-main"
+                            onClick={() => onSelect(item)}
+                        >
+                            <div className="item-meta">
+                                <span className="item-style">{item.style}</span>
+                                <span className="item-date">
+                                    {new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                </span>
+                            </div>
+                            <p className="item-snippet">{item.rawContent.substring(0, 60)}...</p>
                         </div>
-                        <p className="item-snippet">{item.rawContent.substring(0, 60)}...</p>
-                        <ChevronRight size={14} className="chevron" />
+                        <button
+                            className="item-delete-btn"
+                            onClick={(e) => {
+                                console.log('Sidebar: Deleting item', item.id);
+                                e.stopPropagation();
+                                onDeleteItem(item.id);
+                            }}
+                            title="Remove"
+                        >
+                            ×
+                        </button>
                     </div>
                 ))}
             </div>
