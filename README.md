@@ -104,17 +104,22 @@ The **Smart Format** feature uses a secondary LLM pass to analyze the visual hie
 
 ### **Prerequisites**
 - Docker (20.x+) & Docker Compose
-- Google AI Studio API Key
+- Google AI Studio API Key (Gemini)
+- LinkedIn Developer App (for `LINKEDIN_ACCESS_TOKEN` and `LINKEDIN_PERSON_URN`)
 
 ### **1. Environment Configuration**
 ```bash
 # Clone the repository
-git clone https://github.com/your-repo/PostEnhancer.git
+git clone https://github.com/vijay-rajenderan/PostEnhancer.git
 cd PostEnhancer
 
 # Create environment file
 cp .env.example .env
-# Edit .env with your GEMINI_API_KEY
+
+# Edit .env with your credentials:
+# 1. GEMINI_API_KEY (from Google AI Studio)
+# 2. LINKEDIN_ACCESS_TOKEN (from LinkedIn Developer Portal)
+# 3. LINKEDIN_PERSON_URN (e.g., urn:li:person:XXXXX)
 ```
 
 ### **2. Launch Containerized Environment**
