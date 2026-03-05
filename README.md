@@ -19,6 +19,9 @@ An enterprise-grade, AI-native workspace designed to transform raw technical tho
   <tr>
     <td colspan="2"><img src="./assets/smart_polish.png" alt="AI Smart Polish"/><br/><sub><b>AI Smart Polish</b>: Dynamic Unicode transformation for automated visual hierarchy.</sub></td>
   </tr>
+  <tr>
+    <td colspan="2"><img src="./assets/demo.webp" alt="Full Product Demo"/><br/><sub><b>Animated Demo</b>: Watch the PostEnhancer workflow in action.</sub></td>
+  </tr>
 </table>
 
 ---

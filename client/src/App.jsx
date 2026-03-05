@@ -133,8 +133,13 @@ function App() {
             <header className="navbar">
                 <div className="logo">
                     <Sparkles className="icon-sparkle" size={24} />
-                    <span>PostEnhancer</span>
+                    <span>POSTENHANCER <span className="logo-ai">AI</span></span>
                 </div>
+                <nav className="nav-menu">
+                    <span className="nav-item active">Dashboard</span>
+                    <span className="nav-item">My Posts</span>
+                    <span className="nav-item">History</span>
+                </nav>
                 <div className="nav-actions">
                     <button
                         className={`persona-trigger ${usePersona ? 'active' : ''}`}
@@ -155,7 +160,7 @@ function App() {
                 <div className="workspace">
                     <div className="editor-section">
                         <div className="section-header">
-                            <h2>1. Brain Dump</h2>
+                            <h2 className="premium-label">YOUR TECHNICAL BRAIN DUMP</h2>
                             <div className="length-selector">
                                 <label>Target Length: <span>{targetLength} chars</span></label>
                                 <input
@@ -167,38 +172,50 @@ function App() {
                                     onChange={(e) => setTargetLength(parseInt(e.target.value))}
                                 />
                             </div>
-                            <div className="style-selector">
+                        </div>
+
+                        <div className="brain-dump-card">
+                            <div className="card-body">
+                                <textarea
+                                    placeholder="Paste your raw, messy thoughts here..."
+                                    value={rawContent}
+                                    onChange={(e) => setRawContent(e.target.value)}
+                                    disabled={isLoading}
+                                />
+                                <div className="card-footer">
+                                    <button
+                                        className="btn-primary"
+                                        onClick={handleEnhance}
+                                        disabled={isLoading || !rawContent.trim()}
+                                    >
+                                        {isLoading ? 'Enhancing...' : 'Enhance Post'}
+                                        <Sparkles size={18} />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="style-palette">
+                            <span className="palette-label">SELECT POST DNA:</span>
+                            <div className="style-grid">
                                 {styles.map(s => (
                                     <button
                                         key={s.id}
-                                        className={`style-btn ${selectedStyle === s.id ? 'active' : ''}`}
+                                        className={`style-card ${selectedStyle === s.id ? 'active' : ''}`}
                                         onClick={() => setSelectedStyle(s.id)}
-                                        title={s.label}
                                     >
-                                        {s.icon} <span className="btn-text">{s.label}</span>
+                                        <span className="style-icon">{s.icon}</span>
+                                        <span className="style-name">{s.label}</span>
                                     </button>
                                 ))}
                             </div>
                         </div>
-                        <textarea
-                            placeholder="Paste your raw, messy thoughts here..."
-                            value={rawContent}
-                            onChange={(e) => setRawContent(e.target.value)}
-                            disabled={isLoading}
-                        />
-                        <button
-                            className="btn-primary"
-                            onClick={handleEnhance}
-                            disabled={isLoading || !rawContent.trim()}
-                        >
-                            {isLoading ? 'Enhancing...' : 'Enhance Post'}
-                        </button>
                         {error && <p className="error-msg">{error}</p>}
                     </div>
 
                     <div className="preview-section">
                         <div className="section-header">
-                            <h2>2. Preview</h2>
+                            <h2 className="premium-label"><span className="label-gold">PREMIUM</span> LINKEDIN PREVIEW</h2>
                             <div className="preview-controls">
                                 {enhancedContent && (
                                     <span className={`char-count ${enhancedContent.length > 3000 ? 'over-limit' : ''}`}>

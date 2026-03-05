@@ -57,14 +57,14 @@ const PostPreview = ({ content, onEdit }) => {
         <div className={`preview-card ${isNotebook ? 'notebook-mode' : ''}`}>
             <div className="preview-header">
                 <div className="avatar-placeholder">
-                    {isNotebook ? <FileText size={20} /> : (isInfographic ? <Info size={20} /> : 'ME')}
+                    {isNotebook ? <FileText size={20} /> : (isInfographic ? <Info size={20} /> : <div className="sarah-avatar">SJ</div>)}
                 </div>
                 <div className="user-info">
                     <span className="user-name">
-                        {isNotebook ? 'Notebook Digest' : (isInfographic ? 'Visual Insight' : 'Professional Creator')}
+                        {isNotebook ? 'Notebook Digest' : (isInfographic ? 'Visual Insight' : 'Sarah Jenkins')}
                     </span>
                     <span className="user-headline">
-                        {isNotebook ? 'LLM Briefing' : (isInfographic ? 'Structural Breakdown' : `Opinionated Engineer • ${today}`)}
+                        {isNotebook ? 'LLM Briefing' : (isInfographic ? 'Structural Breakdown' : `AI Tech Product Manager • 1h`)}
                     </span>
                 </div>
             </div>
