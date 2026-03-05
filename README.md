@@ -139,8 +139,8 @@ docker-compose up --build
 - [x] **Phase 2**: Direct LinkedIn API Integration.
 - [x] **Phase 3**: Custom Persona & Resume Grounding.
 - [x] **Phase 4**: Rich Text Unicode Engine & Smart Format.
-- [ ] **Phase 5**: Multi-modal Support (Auto-generate Infographics via Mermaid).
-- [ ] **Phase 6**: Sentiment & Engagement Predictive Scoring.
+- [x] **Phase 5**: Multi-modal Support (Auto-generate Infographics via Mermaid).
+- [x] **Phase 6**: Sentiment & Engagement Predictive Scoring.
 
 ---
 
